@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThreeLeaf Catering</title>
+
+<style>
+/* ====== GLOBAL ====== */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #f5fff5;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    color: #2f6530;
+    margin-top: 60px;
+}
+
+/* ====== NAVBAR ====== */
+nav {
+    background: #7fe08c;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f441e;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #1b3a1b;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+/* ====== HERO ====== */
+.hero {
+    height: 70vh;
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=60');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+/* ====== MENU ====== */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card .content {
+    padding: 15px;
+}
+
+/* ===== TESTIMONI ===== */
+.testimoni-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.testi {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== GALERI ===== */
+.gallery {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 12px;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #7fe08c;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">ThreeLeaf Catering</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#rekomendasi">Rekomendasi</a></li>
+        <li><a href="#search">Search</a></li>
+        <li><a href="#discount">Discount</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#transaksi">Transaksi</a></li>
+        <li><a href="#laporan">Laporan Bulanan</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div>
+        <h1>Selamat Datang di ThreeLeaf Catering</h1>
+        <p>Melayani kebutuhan catering harian, acara, dan prasmanan dengan kualitas terbaik.</p>
+    </div>
+</section>
+
+<!-- MENU -->
+<h2 id="menu">Menu Makanan</h2>
+<div class="menu-container">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1604908177225-bf4d1a96248b?auto=format&fit=crop&w=800&q=60">
+        <div class="content">
+            <h3>Paket Ayam</h3>
+            <p>Rp 18.000</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1589308078054-8326b0f3031c?auto=format&fit=crop&w=800&q=60">
+        <div class="content">
+            <h3>Paket Ikan</h3>
+            <p>Rp 22.000</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=60">
+        <div class="content">
+            <h3>Paket Nasi Box</h3>
+            <p>Rp 25.000</p>
+        </div>
+    </div>
+</div>
+
+<!-- REKOMENDASI -->
+<h2 id="rekomendasi">Rekomendasi</h2>
+<div class="menu-container">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=60">
+        <div class="content">
+            <h3>Paket Premium</h3>
+            <p>Paling banyak dipesan!</p>
+        </div>
+    </div>
+</div>
+
+<!-- SEARCH -->
+<h2 id="search">Search Menu</h2>
+<div style="text-align:center;">
+    <input type="text" placeholder="Cari menu..." style="padding:10px;border-radius:8px;width:60%;border:1px solid #bbb;">
+</div>
+
+<!-- DISCOUNT -->
+<h2 id="discount">Promo & Discount</h2>
+<p style="text-align:center;">Dapatkan diskon hingga 20% untuk pesanan event!</p>
+
+<!-- TESTIMONI -->
+<h2 id="testimoni">Testimoni Pelanggan</h2>
+<div class="testimoni-container">
+    <div class="testi">
+        <p>“Makanannya enak dan pengiriman cepat!”</p>
+        <b>- Riko</b>
+    </div>
+    <div class="testi">
+        <p>“Langganan catering acara kantor.”</p>
+        <b>- Sinta</b>
+    </div>
+</div>
+
+<!-- TENTANG KAMI -->
+<h2 id="about">Tentang Kami</h2>
+<p style="padding:20px 40px; text-align:center;">
+    ThreeLeaf Catering menyediakan layanan catering terpercaya dengan bahan segar, bersih, dan profesional.
+</p>
+
+<!-- GALERI -->
+<h2 id="galeri">Galeri</h2>
+<div class="gallery">
+    <img src="https://pin.it/3hQNx1pWy">
+    <img src="https://images.unsplash.com/photo-1551218372-0a3f91c7ccf1?auto=format&fit=crop&w=700&q=60">
+    <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=700&q=60">
+    <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=700&q=60">
+</div>
+
+<!-- TRANSAKSI -->
+<h2 id="transaksi">Transaksi</h2>
+<p style="text-align:center;">Form transaksi bisa ditambahkan di sini…</p>
+
+<!-- LAPORAN BULANAN -->
+<h2 id="laporan">Laporan Bulanan</h2>
+<p style="text-align:center;">Data laporan bulanan akan ditampilkan di bagian ini.</p>
+
+<!-- FOOTER -->
+<footer>
+    &copy; 2025 ThreeLeaf Catering | All Rights Reserved
+</footer>
+
+</body>
+</html>
