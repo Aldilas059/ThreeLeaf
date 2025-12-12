@@ -1,0 +1,23 @@
+CREATE DATABASE db_buku;
+USE db_buku;
+
+CREATE TABLE buku (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    judul VARCHAR(100),
+    penulis VARCHAR(100),
+    harga INT,
+    gambar VARCHAR(100)
+);
+
+INSERT INTO buku (judul, penulis, harga, gambar) VALUES
+('Belajar PHP', 'Andi Publisher', 55000, 'php_book.jpg'),
+('Mastering MySQL', 'Erlangga', 65000, 'mysql_book.jpg');
+
+CREATE TABLE transaksi (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100),
+    id_buku INT,
+    jumlah INT,
+    total INT,
+    tanggal DATETIME
+);
