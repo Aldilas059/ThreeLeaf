@@ -16,12 +16,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
         <?php
         switch ($page) {
             case 'home':        include 'home.php'; break;
-            case 'rekomendasi': include 'rekomendasi.php'; break;
+            case 'tentang':     include 'tentang.php'; break;
             case 'menu':        include 'menu.php'; break;
             case 'search':      include 'search.php'; break;
             case 'discount':    include 'discount.php'; break;
             case 'testimoni':   include 'testimoni.php'; break;
-            case 'tentang':     include 'tentang.php'; break;
+            case 'rekomendasi': include 'rekomendasi.php'; break;
             case 'galeri':      include 'galeri.php'; break;
             case 'transaksi':   include 'transaksi.php'; break;
             case 'laporan':     include 'laporan.php'; break;

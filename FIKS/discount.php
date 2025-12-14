@@ -1,10 +1,11 @@
 <section>
-    <h2>Promo Diskon</h2>
+    <h2>Promo Diskon Aktif</h2>
     <div class="grid">
-        <div class="card">
-            <h3>🎉 Diskon 20%</h3>
-            <p>Pemesanan 100+ porsi</p>
-            <span style="color:var(--secondary-green);font-size:1.5rem;font-weight:bold;">Hingga 31 Des 2025</span>
+        <div class="card" style="border-left: 5px solid var(--secondary-green);">
+            <h3>🎉 Diskon 20% TERAKTIF</h3>
+            <p><strong>Pemesanan 100+ porsi</strong></p>
+            <div style="font-size:1.5rem;color:var(--secondary-green);font-weight:bold;">Rp 20.000/pax (dari Rp 25.000)</div>
+            <p style="color:var(--dark-green);font-weight:bold;">✅ Berlaku otomatis di form pemesanan!</p>
         </div>
         <div class="card">
             <h3>💰 Cashback 10%</h3>
