@@ -1,7 +1,17 @@
 <section>
     <h2>Tentang ThreeLeaf Catering</h2>
     <div style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;">
-        <div style="background:linear-gradient(45deg,var(--light-green),var(--cream));height:300px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:4rem;">🍃</div>
+
+        <!-- FOTO DARI LINK GOOGLE -->
+        <div style="
+            height:300px;
+            border-radius:20px;
+            background-image:url('https://tse2.mm.bing.net/th/id/OIP.t5GKQ8DGVQakx9e_SiwQ5QHaHa?pid=Api&P=0&h=220');
+            background-size:cover;
+            background-position:center;
+        ">
+        </div>
+
         <div>
             <p style="font-size:1.2rem;line-height:1.8;">
                 ThreeLeaf Catering hadir dengan konsep <strong>natural & fresh</strong> seperti tiga daun hijau yang segar. 
@@ -14,5 +24,6 @@
                 <li>✅ Free delivery Jabodetabek</li>
             </ul>
         </div>
+
     </div>
 </section>
