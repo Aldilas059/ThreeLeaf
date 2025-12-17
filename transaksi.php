@@ -47,151 +47,144 @@ if ($_POST && isset($_POST['kirim'])) {
         $diskon_terapk
     ]);
     ?>
-    <!DOCTYPE html>
-    <html lang="id">
-    <head>
-        <meta charset="UTF-8">
-        <title>Konfirmasi Pesanan</title>
-        <link rel="stylesheet" href="style.css"><!-- kalau ada file css -->
-    </head>
-    <body>
-    <section>
-        <div style="background:var(--light-green);padding:3rem;border-radius:20px;text-align:center;max-width:700px;margin:0 auto;">
-            <h3 style="color:var(--dark-green);margin-bottom:1.5rem;">✅ Pesanan Berhasil!</h3>
-            <div style="background:white;padding:2rem;border-radius:15px;margin:1rem 0;box-shadow:0 5px 15px var(--shadow);text-align:left;">
-                <p><strong>Nama:</strong> <?= $nama ?></p>
-                <p><strong>Alamat:</strong> <?= nl2br($alamat) ?></p>
-                <p><strong>Menu:</strong> <?= $menu_pesan ?></p>
-                <p><strong>Jumlah:</strong> <?= $jumlah_pesan ?> pax</p>
-                <p><strong>Harga per pax:</strong> Rp <?= number_format($harga_final) ?>
-                    <?php if ($diskon_terapk > 0): ?>
-                        <span style="color:var(--secondary-green);">(Diskon <?= $diskon_terapk ?>%)</span>
-                    <?php endif; ?>
-                </p>
-                <p style="font-size:1.5rem;color:var(--dark-green);font-weight:bold;border-top:2px solid var(--light-green);padding-top:1rem;">
-                    Total: Rp <?= number_format($total_pesan) ?>
-                </p>
-            </div>
-            <a href="index.php?page=home" class="cta-button" style="margin-top:1rem;display:inline-block;">🏠 Kembali ke Home</a>
-            <br>
-            <a href="daftar_pemesanan.php" class="cta-button" style="margin-top:1rem;display:inline-block;background:var(--secondary-green);">
-                📋 Lihat Daftar Pemesanan
-            </a>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesanan Berhasil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main-content">
+<section>
+    <div class="transaksi-card" style="max-width:700px;margin:auto;text-align:center;">
+        <h3 style="color:var(--dark-green);margin-bottom:1.5rem;">✅ Pesanan Berhasil!</h3>
+
+        <div style="background:#fff;padding:2rem;border-radius:15px;text-align:left;">
+            <p><strong>Nama:</strong> <?= $nama ?></p>
+            <p><strong>Alamat:</strong> <?= nl2br($alamat) ?></p>
+            <p><strong>Menu:</strong> <?= $menu_pesan ?></p>
+            <p><strong>Jumlah:</strong> <?= $jumlah_pesan ?> pax</p>
+            <p>
+                <strong>Harga / pax:</strong> Rp <?= number_format($harga_final) ?>
+                <?php if ($diskon_terapk > 0): ?>
+                    <span style="color:var(--secondary-green);">(Diskon <?= $diskon_terapk ?>%)</span>
+                <?php endif; ?>
+            </p>
+            <hr>
+            <p style="font-size:1.4rem;font-weight:bold;color:var(--dark-green);">
+                Total: Rp <?= number_format($total_pesan) ?>
+            </p>
         </div>
-    </section>
-    </body>
-    </html>
-    <?php
-    exit;
-}
-?>
+
+        <a href="index.php?page=home" class="cta-button" style="margin-top:1.5rem;">🏠 Kembali ke Home</a>
+        <br><br>
+        <a href="daftar_pemesanan.php" class="cta-button" style="background:var(--secondary-green);color:#fff;">
+            📋 Lihat Daftar Pemesanan
+        </a>
+    </div>
+</section>
+</div>
+</body>
+</html>
+
+<?php exit; } ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <title>Form Pemesanan</title>
-    <link rel="stylesheet" href="style.css"><!-- kalau ada file css -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<section>
+
+<div class="main-content">
+<section class="transaksi-section">
     <h2>Form Pemesanan</h2>
 
-    <form method="POST" style="max-width:700px;margin:0 auto;">
-        <div style="background:var(--cream);padding:2.5rem 3rem;border-radius:20px;box-shadow:0 10px 30px var(--shadow);">
+    <form method="POST" class="transaksi-form">
+        <div class="transaksi-card">
 
-            <!-- Menu terpilih -->
-            <div style="margin-bottom:2rem;text-align:center;">
-                <label style="display:block;font-weight:bold;margin-bottom:0.5rem;">Menu Terpilih</label>
-                <div style="display:inline-block;padding:0.8rem 2.5rem;border-radius:20px;background:var(--light-green);color:var(--dark-green);font-weight:bold;font-size:1.1rem;">
-                    <?= $menu ?: 'Pilih menu dari halaman Menu'; ?>
+            <!-- Menu -->
+            <div style="text-align:center;margin-bottom:2rem;">
+                <label><strong>Menu Terpilih</strong></label><br>
+                <div style="margin-top:.5rem;padding:.7rem 2rem;border-radius:20px;background:var(--light-green);font-weight:bold;">
+                    <?= $menu ?: 'Silakan pilih menu terlebih dahulu'; ?>
                 </div>
             </div>
 
-            <!-- Nama & Alamat -->
-            <div style="margin-bottom:1.5rem;">
-                <label style="display:block;font-weight:bold;margin-bottom:0.5rem;">Nama Lengkap *</label>
-                <input type="text" name="nama" required class="field-text">
-            </div>
+            <!-- Nama -->
+            <label>Nama Lengkap *</label>
+            <input type="text" name="nama" class="field-text" required>
 
-            <div style="margin-bottom:2rem;">
-                <label style="display:block;font-weight:bold;margin-bottom:0.5rem;">Alamat Lengkap *</label>
-                <textarea name="alamat" required class="field-text" rows="3"></textarea>
-            </div>
+            <!-- Alamat -->
+            <label style="margin-top:1rem;">Alamat Lengkap *</label>
+            <textarea name="alamat" rows="3" class="field-text" required></textarea>
 
-            <!-- Baris jumlah & harga -->
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+            <!-- Grid Harga -->
+            <div class="harga-grid">
                 <div>
-                    <label style="display:block;font-weight:bold;margin-bottom:0.3rem;font-size:0.95rem;">Jumlah Pesanan *</label>
-                    <input type="number" name="jumlah" id="jumlahPesan" min="1" max="1000"
-                        value="<?= $jumlah ?>" required class="field-text" onchange="hitungDiskon()">
+                    <label>Jumlah Pesanan *</label>
+                    <input type="number" id="jumlahPesan" name="jumlah" min="1" value="<?= $jumlah ?>" class="field-text" onchange="hitungDiskon()">
                 </div>
+
                 <div>
-                    <label style="display:block;font-weight:bold;margin-bottom:0.3rem;font-size:0.95rem;">Harga Normal</label>
-                    <input type="number" id="hargaNormal" value="<?= $harga_asli ?>" readonly class="field-text">
+                    <label>Harga Normal</label>
+                    <input type="number" id="hargaNormal" value="<?= $harga_asli ?>" class="field-text" readonly>
                 </div>
+
                 <div>
-                    <label id="labelHargaDiskon" style="display:block;font-weight:bold;margin-bottom:0.3rem;font-size:0.95rem;">
-                        <?= $diskon_persen > 0 ? 'Harga Diskon (20%)' : 'Harga Diskon' ?>
+                    <label id="labelHargaDiskon">
+                        <?= $diskon_persen ? 'Harga Diskon (20%)' : 'Harga Diskon' ?>
                     </label>
-                    <input type="number" id="hargaDiskon" name="harga_diskon" value="<?= $harga_diskon ?>" readonly
-                        class="field-text" style="background:<?= $diskon_persen > 0 ? 'var(--secondary-green);color:#fff;' : '#fff;' ?>">
+                    <input type="number" id="hargaDiskon" name="harga_diskon" value="<?= $harga_diskon ?>" class="field-text" readonly>
                 </div>
             </div>
 
-            <!-- Info diskon -->
-            <div id="infoDiskon"
-                style="background:var(--light-green);padding:0.8rem 1rem;border-radius:10px;margin-bottom:2rem;text-align:center;<?= $diskon_persen > 0 ? '' : 'display:none;' ?>">
-                <strong style="color:var(--dark-green);font-size:1.05rem;">🎉 DISKON 20% AKTIF!</strong><br>
-                <span style="color:var(--secondary-green);font-size:0.95rem;">Pemesanan 100+ pax = Rp <?= number_format($harga_asli * 0.8) ?>/pax</span>
+            <!-- Info Diskon -->
+            <div id="infoDiskon" style="<?= $diskon_persen ? '' : 'display:none;' ?>" class="card">
+                🎉 <strong>Diskon 20%</strong> untuk pemesanan ≥ 100 pax
             </div>
 
             <!-- Total -->
-            <div style="margin-bottom:2rem;">
-                <label style="display:block;font-weight:bold;margin-bottom:0.5rem;">Total Harga</label>
-                <input type="number" name="total" id="totalHarga" value="<?= $total ?>" readonly
-                    style="width:100%;font-size:1.6rem;padding:1.1rem;border:4px solid var(--secondary-green);border-radius:18px;background:var(--light-green);font-weight:bold;color:var(--dark-green);box-sizing:border-box;">
-                <input type="hidden" name="menu"   value="<?= $menu ?>">
-                <input type="hidden" name="diskon" value="<?= $diskon_persen ?>">
-            </div>
+            <label>Total Harga</label>
+            <input type="number" id="totalHarga" name="total" class="total-harga" value="<?= $total ?>" readonly>
 
-            <button type="submit" name="kirim" class="cta-button" style="width:100%;font-size:1.05rem;padding:1rem;">
+            <input type="hidden" name="menu" value="<?= $menu ?>">
+            <input type="hidden" name="diskon" value="<?= $diskon_persen ?>">
+
+            <button type="submit" name="kirim" class="cta-button">
                 🚀 Konfirmasi & Kirim Pesanan
             </button>
         </div>
     </form>
-
-    <script>
-        function hitungDiskon() {
-            const jumlah = parseInt(document.getElementById('jumlahPesan').value) || 0;
-            const hargaNormal = parseInt(document.getElementById('hargaNormal').value) || 0;
-
-            let hargaDiskon = hargaNormal;
-            let diskonPersen = 0;
-
-            if (jumlah >= 100) {
-                hargaDiskon = Math.round(hargaNormal * 0.8);
-                diskonPersen = 20;
-                document.getElementById('infoDiskon').style.display = 'block';
-                document.getElementById('labelHargaDiskon').textContent = 'Harga Diskon (20%)';
-                document.getElementById('hargaDiskon').style.background = 'var(--secondary-green)';
-                document.getElementById('hargaDiskon').style.color = '#fff';
-            } else {
-                document.getElementById('infoDiskon').style.display = 'none';
-                document.getElementById('labelHargaDiskon').textContent = 'Harga Diskon';
-                document.getElementById('hargaDiskon').style.background = '#fff';
-                document.getElementById('hargaDiskon').style.color = '#333';
-            }
-
-            document.getElementById('hargaDiskon').value = hargaDiskon;
-            document.getElementById('totalHarga').value = hargaDiskon * jumlah;
-
-            // update hidden diskon
-            const inputDiskon = document.querySelector('input[name="diskon"]');
-            if (inputDiskon) {
-                inputDiskon.value = diskonPersen;
-            }
-        }
-    </script>
 </section>
+</div>
+
+<script>
+function hitungDiskon() {
+    const jumlah = parseInt(jumlahPesan.value) || 0;
+    const harga  = parseInt(hargaNormal.value) || 0;
+
+    let diskon = 0;
+    let hargaAkhir = harga;
+
+    if (jumlah >= 100) {
+        diskon = 20;
+        hargaAkhir = Math.round(harga * 0.8);
+        infoDiskon.style.display = 'block';
+        labelHargaDiskon.textContent = 'Harga Diskon (20%)';
+    } else {
+        infoDiskon.style.display = 'none';
+        labelHargaDiskon.textContent = 'Harga Diskon';
+    }
+
+    hargaDiskon.value = hargaAkhir;
+    totalHarga.value = hargaAkhir * jumlah;
+    document.querySelector('input[name="diskon"]').value = diskon;
+}
+</script>
+
 </body>
 </html>

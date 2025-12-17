@@ -318,6 +318,72 @@ section:has(.hero) {
     }
 }
 
+/* ===================== */
+/* TRANSAKSI PAGE */
+/* ===================== */
+
+.transaksi-section {
+    background: transparent;
+    box-shadow: none;
+}
+
+.transaksi-form {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.transaksi-card {
+    background: var(--cream);
+    padding: 2.5rem;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px var(--shadow);
+}
+
+/* Input umum */
+.field-text {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1.8px solid var(--light-green);
+    font-size: 1rem;
+}
+
+/* Grid harga */
+.harga-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Total harga */
+.total-harga {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 16px;
+    border: 3px solid var(--secondary-green);
+    background: var(--light-green);
+    color: var(--dark-green);
+    text-align: center;
+}
+
+/* Tombol submit */
+.transaksi-form .cta-button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .harga-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
 /* LAPORAN */
 /* Container utama daftar */
 .daftar-container {
