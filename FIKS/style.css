@@ -7,313 +7,216 @@
     --white: #FFFFFF;
     --shadow: rgba(46, 125, 50, 0.3);
 }
-
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
-
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: var(--cream);
-    display: flex;
-    min-height: 100vh;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height:1.6;
+    color:#333;
+    background-color:var(--cream);
+    display:flex;
+    min-height:100vh;
 }
-
-/* Sidebar - WIDTH 220px */
+/* Sidebar */
 .sidebar {
-    width: 220px;
-    background: linear-gradient(180deg, var(--dark-green), var(--primary-green));
-    color: var(--white);
-    position: fixed;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    z-index: 1000;
-    overflow-y: auto;
-    box-shadow: 2px 0 20px var(--shadow);
+    width:280px;
+    background:linear-gradient(180deg,var(--dark-green),var(--primary-green));
+    color:var(--white);
+    position:fixed;
+    height:100vh;
+    left:0;
+    top:0;
+    z-index:1000;
+    overflow-y:auto;
+    box-shadow:2px 0 20px var(--shadow);
 }
-
-/* Logo - PADDING 1rem 1.5rem */
 .logo {
-    padding: 1rem 1.5rem;
-    font-size: 1.6rem;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 3px solid var(--light-green);
-    margin-bottom: 1.5rem;
+    padding:2rem 1.5rem;
+    font-size:1.8rem;
+    font-weight:bold;
+    text-align:center;
+    border-bottom:3px solid var(--light-green);
+    margin-bottom:2rem;
 }
-
-.logo span { 
-    color: var(--light-green); 
-}
-
-.nav-menu { 
-    list-style: none; 
-    padding: 0.5rem 0; 
-}
-
-.nav-menu li { 
-    margin: 0.1rem 0; 
-}
-
+.logo span { color:var(--light-green); }
+.nav-menu { list-style:none; padding:1rem 0; }
+.nav-menu li { margin:0.2rem 0; }
 .nav-menu a {
-    display: block;
-    color: var(--white);
-    text-decoration: none;
-    padding: 1rem 1.2rem;
-    transition: all 0.3s;
-    border-left: 4px solid transparent;
-    font-size: 1rem;
+    display:block;
+    color:var(--white);
+    text-decoration:none;
+    padding:1.2rem 1.5rem;
+    transition:all 0.3s;
+    border-left:4px solid transparent;
 }
-
 .nav-menu a:hover,
 .nav-menu a.active {
-    background: var(--light-green);
-    color: var(--dark-green);
-    border-left-color: var(--secondary-green);
-    transform: translateX(5px);
+    background:var(--light-green);
+    color:var(--dark-green);
+    border-left-color:var(--secondary-green);
+    transform:translateX(5px);
 }
-
-/* Main Content - MARGIN SESUAI SIDEBAR 220px */
+/* Main */
 .main-content {
-    margin-left: 220px;
-    flex: 1;
-    padding: 2rem;
-    overflow-y: auto;
+    margin-left:280px;
+    flex:1;
+    padding:2rem;
+    overflow-y:auto;
 }
-
-/* Sections (kecuali home) */
 section {
-    margin-bottom: 4rem;
-    padding: 3rem;
-    background: var(--white);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px var(--shadow);
+    margin-bottom:4rem;
+    padding:3rem;
+    background:var(--white);
+    border-radius:20px;
+    box-shadow:0 10px 30px var(--shadow);
 }
-
 h2 {
-    color: var(--dark-green);
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    position: relative;
+    color:var(--dark-green);
+    font-size:2.5rem;
+    text-align:center;
+    margin-bottom:2rem;
+    position:relative;
 }
-
 h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--secondary-green);
-    margin: 1rem auto;
-    border-radius: 2px;
+    content:'';
+    display:block;
+    width:80px;
+    height:4px;
+    background:var(--secondary-green);
+    margin:1rem auto;
+    border-radius:2px;
 }
-
-/* Grid & Cards */
+/* Grid & Card */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:2rem;
 }
-
 .card {
-    background: var(--cream);
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 2px solid transparent;
+    background:var(--cream);
+    padding:2rem;
+    border-radius:15px;
+    text-align:center;
+    transition:transform 0.3s, box-shadow 0.3s;
+    border:2px solid transparent;
 }
-
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px var(--shadow);
-    border-color: var(--secondary-green);
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px var(--shadow);
+    border-color:var(--secondary-green);
 }
-
+/* Search */
 .search-container {
-    max-width: 600px;
-    margin: 0 auto 2rem;
+    max-width:600px;
+    margin:0 auto 2rem;
+    text-align:center;
 }
-
-/* Pembungkus input + button dalam satu baris */
-.search-wrapper {
-    display: inline-flex;          /* selalu satu baris */
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;          /* super oval */
-    overflow: hidden;              /* sudut anak ikut oval */
-    box-shadow: 0 8px 20px var(--shadow);
-    background: var(--white);
-}
-
-/* Input memenuhi lebar, tanpa radius kanan */
 .search-input {
-    border: none;
-    padding: 1rem 1.5rem;
-    font-size: 1.05rem;
-    min-width: 320px;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--light-green);
+    border-radius: 10px;
+    font-size: 1rem;
     outline: none;
+    background: #fff;
 }
-
-/* Tombol oval di kanan */
+textarea.search-input {
+    resize: none;
+}
 .search-btn {
-    border: none;
-    padding: 1rem 2.5rem;
-    background: var(--secondary-green);
-    color: #fff;
-    cursor: pointer;
-    font-size: 1.05rem;
-    font-weight: 600;
-    white-space: nowrap;
-    border-radius: 0;              /* radius diambil dari wrapper */
+    padding:1rem 2rem;
+    background:var(--secondary-green);
+    color:white;
+    border:none;
+    border-radius:0 50px 50px 0;
+    cursor:pointer;
+    font-size:1.1rem;
 }
-
-
-
 /* Gallery */
 .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:1.5rem;
 }
-
 .gallery-item {
-    height: 250px;
-    background: linear-gradient(45deg, var(--light-green), var(--cream));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: var(--dark-green);
-    border-radius: 15px;
+    height:250px;
+    background:linear-gradient(45deg,var(--light-green),var(--cream));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+    color:var(--dark-green);
+    border-radius:15px;
 }
-
 /* Table */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+    width:100%;
+    border-collapse:collapse;
+    margin-top:1rem;
 }
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--light-green);
+th,td {
+    padding:1rem;
+    text-align:left;
+    border-bottom:1px solid var(--light-green);
 }
-
 th {
-    background: var(--primary-green);
-    color: white;
+    background:var(--primary-green);
+    color:white;
 }
-
-/* HERO SECTION FULL HIJAU - MEMENUHI LAYAR (HOME SAJA) */
+/* Hero */
 .hero {
-    background: linear-gradient(rgba(46,125,50,0.9), rgba(46,125,50,0.9)), 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23A5D6A7" width="1200" height="600"/><circle fill="%234CAF50" cx="200" cy="150" r="80"/><circle fill="%232E7D32" cx="1000" cy="400" r="120"/><path fill="%231B5E20" d="M300 500 Q600 300 900 500 L1200 600 L0 600 Z"/></svg>');
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    margin: -4rem -2rem 4rem -2rem;
-    padding: 0;
-    border-radius: 0;
-    position: relative;
-    overflow: hidden;
+    background:linear-gradient(rgba(46,125,50,0.9),rgba(46,125,50,0.9));
+    height:60vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--white);
+    margin-bottom:2rem;
+    border-radius:20px;
 }
-
-.hero h1 { 
-    font-size: 3.5rem; 
-    margin-bottom: 1rem; 
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-}
-
-.hero p { 
-    font-size: 1.3rem; 
-    margin-bottom: 2rem; 
-}
-
-/* CTA Button */
+.hero h1 { font-size:3rem; margin-bottom:1rem; }
+.hero p { font-size:1.2rem; margin-bottom:1rem; }
 .cta-button {
-    background: var(--light-green);
-    color: var(--dark-green);
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.3s, box-shadow 0.3s;
-    font-weight: bold;
+    background:var(--light-green);
+    color:var(--dark-green);
+    padding:0.8rem 2rem;
+    font-size:1rem;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    transition:transform 0.3s, box-shadow 0.3s;
+    font-weight:bold;
 }
-
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px var(--shadow);
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px var(--shadow);
 }
-
 /* Footer */
 .site-footer {
-    background: var(--dark-green);
-    color: var(--white);
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 2rem;
-    border-radius: 15px;
+    background:var(--dark-green);
+    color:var(--white);
+    text-align:center;
+    padding:1.5rem;
+    margin-top:2rem;
+    border-radius:15px;
 }
-
-/* Form Transaksi */
-input[readonly] {
-    background: var(--light-green);
-}
-
-/* Home section override - NO WHITE CARD */
-section:has(.hero) {
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-}
-
 /* Responsive */
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    
-    .main-content {
-        margin-left: 0;
-        padding: 1rem;
-    }
-    
-    .hero {
-        height: 70vh;
-        margin: -1rem -1rem 2rem -1rem;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .search-input {
-        width: 60%;
-    }
+@media (max-width:768px){
+    body{flex-direction:column;}
+    .sidebar{width:100%;height:auto;position:relative;}
+    .main-content{margin-left:0;padding:1rem;}
 }
+.field-text {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 2px solid var(--light-green);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    background: #fff;
+    box-sizing: border-box;
+    resize: none;
+}
+
+

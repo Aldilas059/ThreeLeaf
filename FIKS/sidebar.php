@@ -11,7 +11,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
         <li><a href="index.php?page=search"      class="<?php echo ($page=='search')?'active':''; ?>">🔍 Search</a></li>
         <li><a href="index.php?page=discount"    class="<?php echo ($page=='discount')?'active':''; ?>">💸 Discount</a></li>
         <li><a href="index.php?page=testimoni"   class="<?php echo ($page=='testimoni')?'active':''; ?>">💬 Testimoni</a></li>
-
         <li><a href="index.php?page=galeri"      class="<?php echo ($page=='galeri')?'active':''; ?>">🖼️ Galeri</a></li>
         <li><a href="index.php?page=laporan"     class="<?php echo ($page=='laporan')?'active':''; ?>">📊 Laporan</a></li>
     </ul>
