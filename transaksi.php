@@ -1,23 +1,61 @@
-<section>
-    <h2>Form Pemesanan</h2>
-    <?php
-    $menu       = isset($_GET['menu']) ? htmlspecialchars(urldecode($_GET['menu'])) : '';
-    $harga_asli = isset($_GET['harga']) ? intval($_GET['harga']) : 0;
-    $jumlah     = isset($_POST['jumlah']) ? intval($_POST['jumlah']) : 1;
+<?php
+// ===== KONFIGURASI KONEKSI DATABASE =====
+$host     = 'localhost';
+$username = 'root';
+$password = '';
+$dbname   = 'threeleaf_db';
 
-    $diskon_persen = ($jumlah >= 100) ? 20 : 0;
-    $harga_diskon  = ($diskon_persen > 0) ? $harga_asli * 0.8 : $harga_asli;
-    $total         = $harga_diskon * $jumlah;
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    die("Koneksi gagal: " . $e->getMessage());
+}
 
-    if ($_POST && isset($_POST['kirim'])) {
-        $nama          = htmlspecialchars($_POST['nama']);
-        $alamat        = htmlspecialchars($_POST['alamat']);
-        $menu_pesan    = htmlspecialchars($_POST['menu']);
-        $jumlah_pesan  = intval($_POST['jumlah']);
-        $harga_final   = intval($_POST['harga_diskon']);
-        $total_pesan   = intval($_POST['total']);
-        $diskon_terapk = intval($_POST['diskon']);
-        ?>
+// ===== AMBIL DATA DARI GET & POST AWAL =====
+$menu       = isset($_GET['menu']) ? htmlspecialchars(urldecode($_GET['menu'])) : '';
+$harga_asli = isset($_GET['harga']) ? intval($_GET['harga']) : 0;
+$jumlah     = isset($_POST['jumlah']) ? intval($_POST['jumlah']) : 1;
+
+// Logika diskon awal (saat pertama kali load / reload)
+$diskon_persen = ($jumlah >= 100) ? 20 : 0;
+$harga_diskon  = ($diskon_persen > 0) ? $harga_asli * 0.8 : $harga_asli;
+$total         = $harga_diskon * $jumlah;
+
+// ===== PROSES SAAT FORM DIKIRIM =====
+if ($_POST && isset($_POST['kirim'])) {
+    $nama          = htmlspecialchars($_POST['nama']);
+    $alamat        = htmlspecialchars($_POST['alamat']);
+    $menu_pesan    = htmlspecialchars($_POST['menu']);
+    $jumlah_pesan  = intval($_POST['jumlah']);
+    $harga_final   = intval($_POST['harga_diskon']);
+    $total_pesan   = intval($_POST['total']);
+    $diskon_terapk = intval($_POST['diskon']);
+
+    // Simpan ke database
+    $stmt = $pdo->prepare("
+        INSERT INTO pemesanan (nama, alamat, menu, jumlah, harga_diskon, total, diskon)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ");
+    $stmt->execute([
+        $nama,
+        $alamat,
+        $menu_pesan,
+        $jumlah_pesan,
+        $harga_final,
+        $total_pesan,
+        $diskon_terapk
+    ]);
+    ?>
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <title>Konfirmasi Pesanan</title>
+        <link rel="stylesheet" href="style.css"><!-- kalau ada file css -->
+    </head>
+    <body>
+    <section>
         <div style="background:var(--light-green);padding:3rem;border-radius:20px;text-align:center;max-width:700px;margin:0 auto;">
             <h3 style="color:var(--dark-green);margin-bottom:1.5rem;">✅ Pesanan Berhasil!</h3>
             <div style="background:white;padding:2rem;border-radius:15px;margin:1rem 0;box-shadow:0 5px 15px var(--shadow);text-align:left;">
@@ -35,11 +73,28 @@
                 </p>
             </div>
             <a href="index.php?page=home" class="cta-button" style="margin-top:1rem;display:inline-block;">🏠 Kembali ke Home</a>
+            <br>
+            <a href="daftar_pemesanan.php" class="cta-button" style="margin-top:1rem;display:inline-block;background:var(--secondary-green);">
+                📋 Lihat Daftar Pemesanan
+            </a>
         </div>
-        <?php
-        exit;
-    }
-    ?>
+    </section>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Pemesanan</title>
+    <link rel="stylesheet" href="style.css"><!-- kalau ada file css -->
+</head>
+<body>
+<section>
+    <h2>Form Pemesanan</h2>
 
     <form method="POST" style="max-width:700px;margin:0 auto;">
         <div style="background:var(--cream);padding:2.5rem 3rem;border-radius:20px;box-shadow:0 10px 30px var(--shadow);">
@@ -68,7 +123,7 @@
                 <div>
                     <label style="display:block;font-weight:bold;margin-bottom:0.3rem;font-size:0.95rem;">Jumlah Pesanan *</label>
                     <input type="number" name="jumlah" id="jumlahPesan" min="1" max="1000"
-                           value="<?= $jumlah ?>" required class="field-text" onchange="hitungDiskon()">
+                        value="<?= $jumlah ?>" required class="field-text" onchange="hitungDiskon()">
                 </div>
                 <div>
                     <label style="display:block;font-weight:bold;margin-bottom:0.3rem;font-size:0.95rem;">Harga Normal</label>
@@ -79,13 +134,13 @@
                         <?= $diskon_persen > 0 ? 'Harga Diskon (20%)' : 'Harga Diskon' ?>
                     </label>
                     <input type="number" id="hargaDiskon" name="harga_diskon" value="<?= $harga_diskon ?>" readonly
-                           class="field-text" style="background:<?= $diskon_persen > 0 ? 'var(--secondary-green);color:#fff;' : '#fff;' ?>">
+                        class="field-text" style="background:<?= $diskon_persen > 0 ? 'var(--secondary-green);color:#fff;' : '#fff;' ?>">
                 </div>
             </div>
 
             <!-- Info diskon -->
             <div id="infoDiskon"
-                 style="background:var(--light-green);padding:0.8rem 1rem;border-radius:10px;margin-bottom:2rem;text-align:center;<?= $diskon_persen > 0 ? '' : 'display:none;' ?>">
+                style="background:var(--light-green);padding:0.8rem 1rem;border-radius:10px;margin-bottom:2rem;text-align:center;<?= $diskon_persen > 0 ? '' : 'display:none;' ?>">
                 <strong style="color:var(--dark-green);font-size:1.05rem;">🎉 DISKON 20% AKTIF!</strong><br>
                 <span style="color:var(--secondary-green);font-size:0.95rem;">Pemesanan 100+ pax = Rp <?= number_format($harga_asli * 0.8) ?>/pax</span>
             </div>
@@ -94,7 +149,7 @@
             <div style="margin-bottom:2rem;">
                 <label style="display:block;font-weight:bold;margin-bottom:0.5rem;">Total Harga</label>
                 <input type="number" name="total" id="totalHarga" value="<?= $total ?>" readonly
-                       style="width:100%;font-size:1.6rem;padding:1.1rem;border:4px solid var(--secondary-green);border-radius:18px;background:var(--light-green);font-weight:bold;color:var(--dark-green);box-sizing:border-box;">
+                    style="width:100%;font-size:1.6rem;padding:1.1rem;border:4px solid var(--secondary-green);border-radius:18px;background:var(--light-green);font-weight:bold;color:var(--dark-green);box-sizing:border-box;">
                 <input type="hidden" name="menu"   value="<?= $menu ?>">
                 <input type="hidden" name="diskon" value="<?= $diskon_persen ?>">
             </div>
@@ -129,6 +184,14 @@
 
             document.getElementById('hargaDiskon').value = hargaDiskon;
             document.getElementById('totalHarga').value = hargaDiskon * jumlah;
+
+            // update hidden diskon
+            const inputDiskon = document.querySelector('input[name="diskon"]');
+            if (inputDiskon) {
+                inputDiskon.value = diskonPersen;
+            }
         }
     </script>
 </section>
+</body>
+</html>

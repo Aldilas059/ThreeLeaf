@@ -82,7 +82,7 @@
             <div style="font-size:1.5rem;color:var(--secondary-green);font-weight:bold;margin:1rem 0;">
                 Hubungi Kami
             </div>
-            <a href="index.php?page=transaksi&menu=Wedding+Package&harga=0" class="cta-button" style="width:100%;text-align:center;">
+            <a href="https://wa.me/6285705041214?text=Halo%20ThreeLeaf%20Catering,%20saya%20ingin%20konsultasi%20untuk%20Wedding%20Package." class="cta-button" style="width:100%;text-align:center;">
                 🛒 Konsultasi
             </a>
         </div>

@@ -3,7 +3,7 @@
     <div class="grid gallery-grid">
 
         <div class="gallery-item"
-             style="background-image:url('https://images.unsplash.com/photo-1628294896516-344152572ee8?auto=format&fit=crop&w=800&q=80');
+            style="background-image:url('https://images.unsplash.com/photo-1628294896516-344152572ee8?auto=format&fit=crop&w=800&q=80');
                     background-size:cover;
                     background-position:center;
                     position:relative;">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="gallery-item"
-             style="background-image:url('https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=80');
+            style="background-image:url('https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=80');
                     background-size:cover;
                     background-position:center;
                     position:relative;">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="gallery-item"
-             style="background-image:url('https://tse1.mm.bing.net/th/id/OIP.uK0RGwAG7bN5CWPbmpefLAHaFP?pid=Api&P=0&h=220');
+            style="background-image:url('https://tse1.mm.bing.net/th/id/OIP.uK0RGwAG7bN5CWPbmpefLAHaFP?pid=Api&P=0&h=220');
                     background-size:cover;
                     background-position:center;
                     position:relative;">
@@ -63,7 +63,7 @@
         </div>
 
         <div class="gallery-item"
-             style="background-image:url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80');
+            style="background-image:url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80');
                     background-size:cover;
                     background-position:center;
                     position:relative;">
@@ -83,7 +83,7 @@
         </div>
 
         <div class="gallery-item"
-             style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.CPo_RbJ6XlJwF12OQpjfYQHaEa?pid=Api&P=0&h=220');
+            style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.CPo_RbJ6XlJwF12OQpjfYQHaEa?pid=Api&P=0&h=220');
                     background-size:cover;
                     background-position:center;
                     position:relative;">
@@ -103,7 +103,7 @@
         </div>
 
         <div class="gallery-item"
-             style="background-image:url('https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80');
+            style="background-image:url('https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80');
                     background-size:cover;
                     background-position:center;
                     position:relative;">
@@ -124,7 +124,7 @@
 
         <!-- MENU TAMBAHAN 1 -->
         <div class="gallery-item"
-             style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.Id0-KW9x6SUaj0PTOEORyAHaFR?pid=Api&P=0&h=220');
+            style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.Id0-KW9x6SUaj0PTOEORyAHaFR?pid=Api&P=0&h=220');
                     background-size:cover;
                     background-position:center;
                     position:relative;">
@@ -145,7 +145,7 @@
 
 
         <div class="gallery-item"
-             style="background-image:url('https://tse1.mm.bing.net/th/id/OIP.HAtz2e6RfNhELNpPs5w68AHaEO?pid=Api&P=0&h=220');
+            style="background-image:url('https://tse1.mm.bing.net/th/id/OIP.HAtz2e6RfNhELNpPs5w68AHaEO?pid=Api&P=0&h=220');
                     background-size:cover;
                     background-position:center;
                     position:relative;">

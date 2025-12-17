@@ -317,3 +317,131 @@ section:has(.hero) {
         width: 60%;
     }
 }
+
+/* LAPORAN */
+/* Container utama daftar */
+.daftar-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+/* Stats bar di atas tabel */
+.stats-bar {
+    background: linear-gradient(135deg, var(--light-green), var(--secondary-green));
+    color: var(--dark-green);
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.stats-bar h3 { 
+    margin: 0 0 1rem 0; 
+    font-size: 1.8rem; 
+}
+
+.total-pesanan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.9);
+    padding: 1rem;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Tabel Enhanced - Override table biasa */
+.orders-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px var(--shadow);
+    margin-top: 1rem;
+}
+
+.orders-table thead th {
+    background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+    color: white;
+    padding: 1.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.orders-table tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(165,214,167,0.3);
+}
+
+.orders-table tbody tr:hover {
+    background: var(--light-green);
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(46,125,50,0.2);
+}
+
+.orders-table td {
+    padding: 1.2rem 1.5rem;
+    vertical-align: middle;
+}
+
+.nama-cell { 
+    font-weight: 600; 
+    color: var(--dark-green); 
+}
+
+.total-cell { 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    color: var(--dark-green) !important;
+    background: rgba(165,214,167,0.3);
+}
+
+.no-data {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+    background: rgba(165,214,167,0.2);
+    border-radius: 15px;
+    font-size: 1.2rem;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 2rem;
+    background: var(--secondary-green);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px var(--shadow);
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .orders-table {
+        font-size: 0.9rem;
+    }
+    .orders-table th, .orders-table td {
+        padding: 0.8rem;
+    }
+    .total-cell { 
+        font-size: 1.1rem; 
+    }
+}
