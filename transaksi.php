@@ -79,7 +79,7 @@ if ($_POST && isset($_POST['kirim'])) {
 
         <a href="index.php?page=home" class="cta-button" style="margin-top:1.5rem;">🏠 Kembali ke Home</a>
         <br><br>
-        <a href="daftar_pemesanan.php" class="cta-button" style="background:var(--secondary-green);color:#fff;">
+        <a href="index.php?page=laporan" class="cta-button" style="background:var(--secondary-green);color:#fff;">
             📋 Lihat Daftar Pemesanan
         </a>
     </div>
